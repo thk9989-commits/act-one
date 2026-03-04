@@ -1,60 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ACT_ONE_GATEWAY</title>
+    <title>SYSTEM_ACCESS</title>
     <style>
-        body { 
-            background-color: #000 !important; 
-            color: #00ff41; 
-            font-family: 'Courier New', monospace; 
-            margin: 0; 
-            padding: 20px;
-            overflow-x: hidden;
-        }
-        #tiresult { 
-            font-size: 9px; 
-            line-height: 1.2; 
-            white-space: pre; 
-            font-weight: bold;
-            display: block;
-            margin-top: 20px;
-        }
+        body { background: #000; color: #00ff41; font-family: monospace; margin: 0; padding: 20px; }
+        #tiresult { font-size: 9px; line-height: 1.1; white-space: pre; font-weight: bold; }
     </style>
 </head>
 <body>
-
-<div id="status">>>> CONNECTION STABLE. INITIALIZING...</div>
-<pre id="tiresult"></pre>
+    <div id="tiresult"></div>
 
 <script>
-    const display = document.getElementById("tiresult");
-    
-    // Copy-paste your lines here. 
-    // IMPORTANT: Ensure each line ends with a comma ,
+    // I have put your first 3 lines here. 
+    // Notice the ` ` backticks and the comma , at the end of the lines.
     const doorData = [
-        `<b style="color:#321B09">0</b><b style="color:#331C0A">1</b><b style="color:#351E0C">0</b><b style="color:#3B200A">0</b><b style="color:#3D200A">0</b><b style="color:#3E220C">0</b><b style="color:#40230F">1</b><b style="color:#3B2007">0</b><b style="color:#866B4B">1</b><b style="color:#836F49">0</b><b style="color:#5D4D2A">0</b><b style="color:#534128">1</b><b style="color:#4A351E">0</b><b style="color:#442E15">1</b><b style="color:#3F2911">1</b><b style="color:#3E270F">1</b><b style="color:#3D270E">1</b><b style="color:#3C250D">11</b><b style="color:#3B250D">0</b><b style="color:#3B240C">0</b><b style="color:#3A240B">11</b><b style="color:#3B240B">1</b><b style="color:#3A240C">0</b><b style="color:#392210">1</b><b style="color:#38210F">1</b><b style="color:#37200E">1</b><b style="color:#371F0D">010</b><b style="color:#37200E">1</b><b style="color:#38210E">0</b><b style="color:#3A2210">1</b><b style="color:#38210F">110</b><b style="color:#372110">1</b><b style="color:#352010">0</b><b style="color:#341F0F">1</b><b style="color:#331F0D">0</b><b style="color:#33200C">1</b><b style="color:#33210D">0</b><b style="color:#362310">0</b><b style="color:#35220F">0</b><b style="color:#362310">00</b><b style="color:#352210">0</b><b style="color:#352310">0</b><b style="color:#36230F">1</b>`,
-        `<b style="color:#341D09">0</b><b style="color:#3C260F">1</b><b style="color:#473117">0</b><b style="color:#4C3217">0</b><b style="color:#4E3217">0</b><b style="color:#4E3318">0</b><b style="color:#51341D">0</b><b style="color:#4E3015">1</b><b style="color:#8E714F">0</b><b style="color:#98845E">1</b><b style="color:#72623F">0</b><b style="color:#6C5B3C">0</b><b style="color:#645137">1</b><b style="color:#5F4B32">1</b><b style="color:#59452C">1</b><b style="color:#503D25">1</b><b style="color:#4A3821">1</b><b style="color:#46341D">0</b><b style="color:#433218">0</b><b style="color:#463618">0</b><b style="color:#48361B">0</b><b style="color:#4A361D">0</b><b style="color:#4B331D">0</b><b style="color:#4A331D">0</b><b style="color:#49321C">1</b><b style="color:#46311A">0</b><b style="color:#453119">1</b><b style="color:#443019">1</b><b style="color:#432E19">1</b><b style="color:#432E1A">1</b><b style="color:#432E19">0</b><b style="color:#453019">0</b><b style="color:#432E1E">0</b><b style="color:#44311E">1</b><b style="color:#46321B">0</b><b style="color:#3E2911">1</b><b style="color:#3D290E">1</b><b style="color:#382711">1</b><b style="color:#2A1B0C">0</b><b style="color:#23130A">0</b><b style="color:#2E1B0D">1</b><b style="color:#523E28">1</b><b style="color:#543F2A">0</b><b style="color:#523E28">1</b><b style="color:#55412A">0</b><b style="color:#59452A">1</b><b style="color:#5A472A">1</b><b style="color:#5D4A2E">0</b><b style="color:#5A462B">1</b><b style="color:#5E4A2E">1</b>`,
-        `<b style="color:#402913">1</b><b style="color:#4B3618">0</b><b style="color:#6E5934">0</b><b style="color:#6E5532">1</b><b style="color:#705534">0</b><b style="color:#725735">1</b><b style="color:#75563B">0</b><b style="color:#735336">0</b><b style="color:#9B7D58">0</b><b style="color:#A18C67">1</b><b style="color:#766642">1</b><b style="color:#71613C">1</b><b style="color:#6A593A">0</b><b style="color:#614F35">1</b><b style="color:#513F26">1</b><b style="color:#504129">0</b><b style="color:#493D28">1</b><b style="color:#4F432C">1</b><b style="color:#52462C">1</b><b style="color:#52472C">1</b><b style="color:#8F8B80">0</b><b style="color:#BFC0C0">0</b><b style="color:#BABBBB">0</b><b style="color:#B9BABA">1</b><b style="color:#B8B9B9">1</b><b style="color:#B2B8B9">1</b><b style="color:#B1B7B8">00</b><b style="color:#B1B6BC">0</b><b style="color:#B0B5BC">0</b><b style="color:#AEB4BA">1</b><b style="color:#ACB4B7">1</b><b style="color:#B6B5C1">0</b><b style="color:#A49D98">0</b><b style="color:#5B4D2E">0</b><b style="color:#3E2C11">1</b><b style="color:#3A2818">0</b><b style="color:#372513">0</b><b style="color:#32200A">1</b><b style="color:#322007">0</b><b style="color:#4B371D">0</b><b style="color:#715B42">0</b><b style="color:#6F5940">1</b><b style="color:#665033">1</b><b style="color:#7B6740">0</b><b style="color:#8B784A">0</b><b style="color:#92804D">0</b><b style="color:#9A8857">0</b><b style="color:#8D7B49">1</b><b style="color:#8C7A49">0</b>`
+` <b style="color:#321B09">0</b><b style="color:#331C0A">1</b><b style="color:#351E0C">0</b><b style="color:#3B200A">0</b><b style="color:#3D200A">0</b><b style="color:#3E220C">0</b><b style="color:#40230F">1</b><b style="color:#3B2007">0</b><b style="color:#866B4B">1</b><b style="color:#836F49">0</b><b style="color:#5D4D2A">0</b><b style="color:#534128">1</b><b style="color:#4A351E">0</b><b style="color:#442E15">1</b><b style="color:#3F2911">1</b><b style="color:#3E270F">1</b><b style="color:#3D270E">1</b><b style="color:#3C250D">11</b><b style="color:#3B250D">0</b><b style="color:#3B240C">0</b><b style="color:#3A240B">11</b><b style="color:#3B240B">1</b><b style="color:#3A240C">0</b><b style="color:#392210">1</b><b style="color:#38210F">1</b><b style="color:#37200E">1</b><b style="color:#371F0D">010</b><b style="color:#37200E">1</b><b style="color:#38210E">0</b><b style="color:#3A2210">1</b><b style="color:#38210F">110</b><b style="color:#372110">1</b><b style="color:#352010">0</b><b style="color:#341F0F">1</b><b style="color:#331F0D">0</b><b style="color:#33200C">1</b><b style="color:#33210D">0</b><b style="color:#362310">0</b><b style="color:#35220F">0</b><b style="color:#362310">00</b><b style="color:#352210">0</b><b style="color:#352310">0</b><b style="color:#36230F">1</b>`,
+` <b style="color:#341D09">0</b><b style="color:#3C260F">1</b><b style="color:#473117">0</b><b style="color:#4C3217">0</b><b style="color:#4E3217">0</b><b style="color:#4E3318">0</b><b style="color:#51341D">0</b><b style="color:#4E3015">1</b><b style="color:#8E714F">0</b><b style="color:#98845E">1</b><b style="color:#72623F">0</b><b style="color:#6C5B3C">0</b><b style="color:#645137">1</b><b style="color:#5F4B32">1</b><b style="color:#59452C">1</b><b style="color:#503D25">1</b><b style="color:#4A3821">1</b><b style="color:#46341D">0</b><b style="color:#433218">0</b><b style="color:#463618">0</b><b style="color:#48361B">0</b><b style="color:#4A361D">0</b><b style="color:#4B331D">0</b><b style="color:#4A331D">0</b><b style="color:#49321C">1</b><b style="color:#46311A">0</b><b style="color:#453119">1</b><b style="color:#443019">1</b><b style="color:#432E19">1</b><b style="color:#432E1A">1</b><b style="color:#432E19">0</b><b style="color:#453019">0</b><b style="color:#432E1E">0</b><b style="color:#44311E">1</b><b style="color:#46321B">0</b><b style="color:#3E2911">1</b><b style="color:#3D290E">1</b><b style="color:#382711">1</b><b style="color:#2A1B0C">0</b><b style="color:#23130A">0</b><b style="color:#2E1B0D">1</b><b style="color:#523E28">1</b><b style="color:#543F2A">0</b><b style="color:#523E28">1</b><b style="color:#55412A">0</b><b style="color:#59452A">1</b><b style="color:#5A472A">1</b><b style="color:#5D4A2E">0</b><b style="color:#5A462B">1</b><b style="color:#5E4A2E">1</b>`,
+` <b style="color:#402913">1</b><b style="color:#4B3618">0</b><b style="color:#6E5934">0</b><b style="color:#6E5532">1</b><b style="color:#705534">0</b><b style="color:#725735">1</b><b style="color:#75563B">0</b><b style="color:#735336">0</b><b style="color:#9B7D58">0</b><b style="color:#A18C67">1</b><b style="color:#766642">1</b><b style="color:#71613C">1</b><b style="color:#6A593A">0</b><b style="color:#614F35">1</b><b style="color:#513F26">1</b><b style="color:#504129">0</b><b style="color:#493D28">1</b><b style="color:#4F432C">1</b><b style="color:#52462C">1</b><b style="color:#52472C">1</b><b style="color:#8F8B80">0</b><b style="color:#BFC0C0">0</b><b style="color:#BABBBB">0</b><b style="color:#B9BABA">1</b><b style="color:#B8B9B9">1</b><b style="color:#B2B8B9">1</b><b style="color:#B1B7B8">00</b><b style="color:#B1B6BC">0</b><b style="color:#B0B5BC">0</b><b style="color:#AEB4BA">1</b><b style="color:#ACB4B7">1</b><b style="color:#B6B5C1">0</b><b style="color:#A49D98">0</b><b style="color:#5B4D2E">0</b><b style="color:#3E2C11">1</b><b style="color:#3A2818">0</b><b style="color:#372513">0</b><b style="color:#32200A">1</b><b style="color:#322007">0</b><b style="color:#4B371D">0</b><b style="color:#715B42">0</b><b style="color:#6F5940">1</b><b style="color:#665033">1</b><b style="color:#7B6740">0</b><b style="color:#8B784A">0</b><b style="color:#92804D">0</b><b style="color:#9A8857">0</b><b style="color:#8D7B49">1</b><b style="color:#8C7A49">0</b>`
     ];
 
-    async function injectDoor() {
-        for (let i = 0; i < doorData.length; i++) {
-            // Using a temporary div to sanitize the row
-            const row = document.createElement("div");
-            row.innerHTML = doorData[i];
-            display.appendChild(row);
-            
-            // Auto-scroll
-            window.scrollTo(0, document.body.scrollHeight);
-            
-            // Row-typing delay
-            await new Promise(r => setTimeout(r, 100));
+    async function draw() {
+        const out = document.getElementById("tiresult");
+        for (let line of doorData) {
+            out.innerHTML += line + "\n";
+            await new Promise(r => setTimeout(r, 200));
         }
     }
-
-    injectDoor();
+    draw();
 </script>
 </body>
 </html>
